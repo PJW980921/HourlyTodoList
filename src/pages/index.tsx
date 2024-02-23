@@ -3,7 +3,6 @@ import TodoHeader from '@/components/common/Header/TodoHeader';
 import { PoorStory } from '@/styles/fonts/fonts';
 import Date from '../components/common/Main/Date';
 import Contact from '@/components/common/Footer/Contact';
-import TodoForm from '../components/common/Footer/TodoForm';
 import TodoMain from '@/components/common/Main/TodoMain';
 import Vector from '@/../public/images/Vector.svg';
 import Image from 'next/image';
@@ -21,7 +20,6 @@ export default function Home() {
       <div className='flex flex-col gap-[1rem]'>
       <TodoHeader/>
       <TodoMain/>
-      <TodoForm/>
       </div>
     </main>
     </div>
