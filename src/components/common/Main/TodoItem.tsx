@@ -9,9 +9,10 @@ interface TodoProps {
 
 interface TodoItemProps {
   todo: TodoProps;
+  onDelete: (id: string) => void;
 }
 
-export default function TodoItem({ todo }: TodoItemProps) {
+export default function TodoItem({ todo, onDelete }: TodoItemProps) {
   const { register, handleSubmit } = useForm();
 
   const handleCheckboxChange = (data: { [key: string]: boolean }) => {
@@ -23,9 +24,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
     
   };
 
-  const handleDeleteButtonClick = () => {
-    
-  };
+  const handleDeleteButtonClick = () => onDelete(todo.id);
 
   return (
     <div className="flex flex-col justify-center text-14-400 gap-[1rem]">
