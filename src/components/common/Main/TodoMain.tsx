@@ -1,27 +1,42 @@
-import { FaEdit } from "react-icons/fa";
-import { FaRegTrashAlt } from "react-icons/fa";
+import {v4 as uuidv4} from 'uuid';
+import TodoForm from "../Footer/TodoForm";
+import { useEffect, useState } from "react";
+import TodoItem from "./TodoItem";
+
+interface TodoProps {
+  id: string;
+  text: string;
+  status: string;
+}
 export default function TodoMain() {
+  const [todos, setTodos] = useState<TodoProps[]>([
+    {id : uuidv4(), text: "공부하기", status: "Todo"},
+    {id: uuidv4(), text: "코딩하기", status: "Todo"},
+  ])
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem('todo');
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  const saveTodosToLocalStorage = (updatedTodos: TodoProps[]) => {
+    localStorage.setItem('todo', JSON.stringify(updatedTodos));
+  };
+
+  const handleAdd = (newTodo: TodoProps) => {
+    const updatedTodos = [...todos, newTodo];
+    setTodos(updatedTodos);
+    saveTodosToLocalStorage(updatedTodos);
+  };
   return (
+    <>
     <main className='w-full h-[25rem] border-2 border-solid border-black-0 rounded-[2rem] '>
-      <div className='flex flex-col justify-center text-14-400 gap-[1rem]'>
-      <li className="mt-2 list-none flex flex-row justify-center gap-2 border-black-0  border-dashed border-b-2">
-      <input type="checkbox" />
-      <label htmlFor="checkbox">공부하기</label>
-      <div className="flex items-center gap-2">
-      <button><FaEdit /></button>
-      <button><FaRegTrashAlt /></button>
-      </div>
-      </li>
-      <li className="list-none flex flex-row justify-center gap-2 border-black-0 border-dashed border-b-2">
-      <input type="checkbox" />
-      <label htmlFor="checkbox">청소하기</label>
-      <div className="flex items-center gap-2">
-      <button><FaEdit /></button>
-      <button><FaRegTrashAlt /></button>
-      </div>
-      </li>
-      </div>
+    {todos.map((item)=> <TodoItem key={item.id} todo={item} />)}
     </main>
+    <TodoForm onAdd={handleAdd}/>
+    </>
   );
 }
 
