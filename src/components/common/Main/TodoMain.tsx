@@ -9,10 +9,7 @@ interface TodoProps {
   status: string;
 }
 export default function TodoMain() {
-  const [todos, setTodos] = useState<TodoProps[]>([
-    {id : uuidv4(), text: "공부하기", status: "Todo"},
-    {id: uuidv4(), text: "코딩하기", status: "Todo"},
-  ])
+  const [todos, setTodos] = useState<TodoProps[]>([]);
 
   useEffect(() => {
     const storedTodos = localStorage.getItem('todo');
@@ -30,10 +27,24 @@ export default function TodoMain() {
     setTodos(updatedTodos);
     saveTodosToLocalStorage(updatedTodos);
   };
+
+  const handleEdit = (newTodo: TodoProps) => { 
+    const updatedTodos = todos.map((todo) =>
+    todo.id === newTodo.id ? { ...todo, text: newTodo.text } : todo
+  );
+  setTodos(updatedTodos);
+  saveTodosToLocalStorage(updatedTodos);
+};
+
+  const handleDelete = (id: string) => {
+    const updatedTodos = todos.filter((todo) => todo.id!== id);
+    setTodos(updatedTodos);
+    saveTodosToLocalStorage(updatedTodos);
+  };
   return (
     <>
     <main className='w-full h-[25rem] border-2 border-solid border-black-0 rounded-[2rem] '>
-    {todos.map((item)=> <TodoItem key={item.id} todo={item} />)}
+    {todos.map((item)=> <TodoItem key={item.id} todo={item} onEdit={handleEdit} onDelete={handleDelete} />)}
     </main>
     <TodoForm onAdd={handleAdd}/>
     </>
