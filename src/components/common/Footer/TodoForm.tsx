@@ -27,7 +27,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
       alert('Todo를 입력해주세요.');
       return;
     }
-    onAdd({ id: uuidv4(), text: data.todo, status: 'active' });
+    onAdd({ id: uuidv4(), text: data.todo, status: 'Todo' });
     reset();
   };
 

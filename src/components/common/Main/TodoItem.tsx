@@ -76,7 +76,7 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
             type="checkbox"
             id={`checkbox-${todo.id}`}
             {...register(`checkbox-${todo.id}`)}
-            defaultChecked={todo.status === 'completed'}
+            defaultChecked={todo.status === 'Completed'}
           />
           <label htmlFor={`checkbox-${todo.id}`}>{todo.text}</label>
           <button type="button" onClick={handleEditButtonClick}>
