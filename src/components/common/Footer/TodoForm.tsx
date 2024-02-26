@@ -34,8 +34,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
   };
 
   return (
-    <form className="flex flex-row gap-[1rem]" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col w-full">
+    <form className="flex flex-row gap-[0.5rem]" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
           {...register('todo', {
@@ -48,11 +47,10 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
           placeholder="오늘의 할일은 무엇인가요?"
           className="w-full border-2 border-solid border-black-0 rounded-[1rem]"
         />
-        <label className="flex items-center text-[0.6rem] text-red">{!isValid ? errors?.todo?.message : null}</label>
-      </div>
+        <label className="flex items-center text-[0.5rem] text-red">{!isValid ? errors?.todo?.message : null}</label>
       <button type="submit" className="flex-shrink-0 flex border-2 border-solid rounded-full border-black-0 w-[2rem] items-center justify-center">
-        <TbPencilPlus />
-      </button>
+          <TbPencilPlus />
+        </button>
     </form>
   );
 }
