@@ -1,5 +1,5 @@
-import { todayTime } from '@/pages/Date';
-import React, { useEffect, useState } from 'react';
+import { todayTime } from '@/../../src/Date';
+import React from 'react';
 
 interface DateProps { 
   newTime : string;

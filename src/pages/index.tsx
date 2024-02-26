@@ -7,7 +7,7 @@ import TodoMain from '@/components/common/Main/TodoMain';
 import Vector from '@/../public/images/Vector.svg';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { todayTime } from './Date';
+import { todayTime } from '../Date';
 const filters = ['All', 'Todo', 'Completed'];
 export default function Home() {
   const [filter, setFilter] = useState(filters[0]);

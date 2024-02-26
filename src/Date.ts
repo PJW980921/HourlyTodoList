@@ -1,5 +1,5 @@
 export const todayTime  = () => {
-  const now   = new Date();
+  const now = new Date();
   const todayYear = now.getFullYear();
   const todayMonth = now.getMonth() + 1;
   const todayDate = now.getDate();

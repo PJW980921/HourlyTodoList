@@ -2,7 +2,7 @@ import React from 'react';
 import { TbPencilPlus } from 'react-icons/tb';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
-import { todayTime } from '@/pages/Date';
+import { todayTime } from '@/../../src/Date';
 
 interface IForm {
   todo: string;
