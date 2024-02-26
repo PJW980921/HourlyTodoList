@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { MdCancelScheduleSend } from "react-icons/md";
@@ -7,6 +7,7 @@ interface TodoProps {
   id: string;
   text: string;
   status: string;
+  time:string;
 }
 
 interface TodoItemProps {
@@ -19,10 +20,14 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
   const { register, handleSubmit, setValue } = useForm();
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleCheckboxChange = (data: { [key: string]: boolean }) => {
-    console.log(data);
-
+  const handleCheckboxChange = (data: { [key: string]: string }) => {
+    const newTodo: TodoProps = { ...todo, text: data[`edit-${todo.id}`], status: data[`edit-${todo.status}`] };
   };
+
+  const onChecked = (e : ChangeEvent<HTMLInputElement>) => {
+    const status = e.target.checked ? 'Completed' : 'Todo';
+    onEdit({...todo, status})
+  }
 
   const handleEditButtonClick = () => {
     setIsEditing(true);
@@ -76,7 +81,8 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
             type="checkbox"
             id={`checkbox-${todo.id}`}
             {...register(`checkbox-${todo.id}`)}
-            defaultChecked={todo.status === 'completed'}
+            defaultChecked={todo.status === 'Completed'}
+            onChange={onChecked}
           />
           <label htmlFor={`checkbox-${todo.id}`}>{todo.text}</label>
           <button type="button" onClick={handleEditButtonClick}>
@@ -85,6 +91,7 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
           <button type="button" onClick={handleDeleteButtonClick}>
             <FaRegTrashAlt />
           </button>
+          <label className='text-12-400 text-gray-9' htmlFor={`checkbox-${todo.id}`}>{todo.time}</label>
         </form>
       )}
     </div>

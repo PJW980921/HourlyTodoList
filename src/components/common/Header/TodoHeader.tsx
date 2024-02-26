@@ -1,9 +1,19 @@
-export default function TodoHeader() {
-  const navTitles = ['All', 'Todo', 'Completed'];
+
+interface TodoHeaderProps {
+  filter: string;
+  filters: string[];
+  onFilterChange: (filter: string) => void;
+}
+export default function TodoHeader({filters, filter,onFilterChange} : TodoHeaderProps) {
   return (
     <header className=" border-black-0 border-solid border-b-2">
     <ul className=" active:border-black-4 text-[2rem] flex flex-row justify-around items-center gap-[5rem] m-[1rem]">
-      {navTitles.map((item,id)=> <li key={id}>{item}</li>)}
+      {filters.map((item,id)=> <li className={`${filter === item ? "border-2 border-black-1" : null }`} key={id}>            
+      <button
+              onClick={() => onFilterChange(item)}
+            >
+              {item}
+            </button></li>)}
     </ul>
     </header>
   );

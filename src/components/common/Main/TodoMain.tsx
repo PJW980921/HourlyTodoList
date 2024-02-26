@@ -1,4 +1,3 @@
-import {v4 as uuidv4} from 'uuid';
 import TodoForm from "../Footer/TodoForm";
 import { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
@@ -7,8 +6,9 @@ interface TodoProps {
   id: string;
   text: string;
   status: string;
+  time:string;
 }
-export default function TodoMain() {
+export default function TodoMain({filter} : {filter: string}) {
   const [todos, setTodos] = useState<TodoProps[]>([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function TodoMain() {
 
   const handleEdit = (newTodo: TodoProps) => { 
     const updatedTodos = todos.map((todo) =>
-    todo.id === newTodo.id ? { ...todo, text: newTodo.text } : todo
+    todo.id === newTodo.id ? { ...todo, text: newTodo.text, status: newTodo.status } : todo
   );
   setTodos(updatedTodos);
   saveTodosToLocalStorage(updatedTodos);
@@ -41,10 +41,20 @@ export default function TodoMain() {
     setTodos(updatedTodos);
     saveTodosToLocalStorage(updatedTodos);
   };
+
+  const todoStatusFilter = () => {
+    if (filter === 'All') {
+      return todos;
+    }
+    return todos.filter((todo) => todo.status === filter);
+  }
+  
+  const todoFiltered = todoStatusFilter();
+
   return (
     <>
-    <main className='w-full h-[25rem] border-2 border-solid border-black-0 rounded-[2rem] '>
-    {todos.map((item)=> <TodoItem key={item.id} todo={item} onEdit={handleEdit} onDelete={handleDelete} />)}
+    <main className=' overflow-scroll  scroll-smooth scrollbar-hide w-full h-[25rem] border-2 border-solid border-black-0 rounded-[2rem] '>
+    {todoFiltered.reverse().map((item)=> <TodoItem key={item.id} todo={item} onEdit={handleEdit} onDelete={handleDelete} />)}
     </main>
     <TodoForm onAdd={handleAdd}/>
     </>
