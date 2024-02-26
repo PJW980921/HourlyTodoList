@@ -54,7 +54,7 @@ export default function TodoMain({filter} : {filter: string}) {
   return (
     <>
     <main className=' overflow-scroll  scroll-smooth scrollbar-hide w-full h-[25rem] border-2 border-solid border-black-0 rounded-[2rem] '>
-    {todoFiltered.map((item)=> <TodoItem key={item.id} todo={item} onEdit={handleEdit} onDelete={handleDelete} />)}
+    {todoFiltered.reverse().map((item)=> <TodoItem key={item.id} todo={item} onEdit={handleEdit} onDelete={handleDelete} />)}
     </main>
     <TodoForm onAdd={handleAdd}/>
     </>

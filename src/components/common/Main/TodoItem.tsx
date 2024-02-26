@@ -22,14 +22,12 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
 
   const handleCheckboxChange = (data: { [key: string]: string }) => {
     const newTodo: TodoProps = { ...todo, text: data[`edit-${todo.id}`], status: data[`edit-${todo.status}`] };
+    console.log(newTodo);
   };
 
   const onChecked = (e : ChangeEvent<HTMLInputElement>) => {
-    if(e.target.checked){
-    todo.status = 'Completed';
-  }else{
-    todo.status = 'Todo';
-  }
+    const status = e.target.checked ? 'Completed' : 'Todo';
+    onEdit({...todo, status})
   }
 
   const handleEditButtonClick = () => {
