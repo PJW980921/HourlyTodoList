@@ -22,7 +22,6 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
 
   const handleCheckboxChange = (data: { [key: string]: string }) => {
     const newTodo: TodoProps = { ...todo, text: data[`edit-${todo.id}`], status: data[`edit-${todo.status}`] };
-    console.log(newTodo);
   };
 
   const onChecked = (e : ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +32,6 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
   const handleEditButtonClick = () => {
     setIsEditing(true);
     setValue(`edit-${todo.id}`, todo.text);
-    console.log(localStorage.getItem('todo'))
   };
 
   const handleCancelButtonClick = () => {
