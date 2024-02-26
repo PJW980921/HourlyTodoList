@@ -84,14 +84,14 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
             defaultChecked={todo.status === 'Completed'}
             onChange={onChecked}
           />
-          <label htmlFor={`checkbox-${todo.id}`}>{todo.text}</label>
+          <label>{todo.text}</label>
           <button type="button" onClick={handleEditButtonClick}>
             <FaEdit />
           </button>
           <button type="button" onClick={handleDeleteButtonClick}>
             <FaRegTrashAlt />
           </button>
-          <label className='text-12-400 text-gray-9' htmlFor={`checkbox-${todo.id}`}>{todo.time}</label>
+          <label className='text-12-400 text-gray-9'>{todo.time}</label>
         </form>
       )}
     </div>
