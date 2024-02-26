@@ -6,6 +6,7 @@ interface TodoProps {
   id: string;
   text: string;
   status: string;
+  time:string;
 }
 export default function TodoMain({filter} : {filter: string}) {
   const [todos, setTodos] = useState<TodoProps[]>([]);
@@ -29,7 +30,7 @@ export default function TodoMain({filter} : {filter: string}) {
 
   const handleEdit = (newTodo: TodoProps) => { 
     const updatedTodos = todos.map((todo) =>
-    todo.id === newTodo.id ? { ...todo, text: newTodo.text } : todo
+    todo.id === newTodo.id ? { ...todo, text: newTodo.text, status: newTodo.status } : todo
   );
   setTodos(updatedTodos);
   saveTodosToLocalStorage(updatedTodos);
