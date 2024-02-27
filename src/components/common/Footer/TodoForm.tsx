@@ -2,7 +2,7 @@ import React from 'react';
 import { TbPencilPlus } from 'react-icons/tb';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
-import { todayTime } from '@/../../src/Date';
+import { getTodayTime } from '@/../../src/Date';
 
 interface IForm {
   todo: string;
@@ -28,7 +28,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
       alert('Todo를 입력해주세요.');
       return;
     }
-    const currentTime = todayTime().slice(12, 19);
+    const currentTime = getTodayTime().slice(12, 19);
     onAdd({ id: uuidv4(), text: data.todo, status : 'Todo', time: currentTime });
     reset();
   };

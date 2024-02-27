@@ -7,7 +7,7 @@ import TodoMain from '@/components/common/Main/TodoMain';
 import Vector from '@/../public/images/Vector.svg';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { todayTime } from '../Date';
+import { getTodayTime } from '../Date';
 import { Providers } from '@/components/common/Main/Providers';
 const filters = ['All', 'Todo', 'Completed'];
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
   
   useEffect(()=> {
    const liveTime = setInterval(()=>{
-    setNewTime(todayTime().slice(12,19));
+    setNewTime(getTodayTime().slice(12,19));
    },1000);
 return (()=> clearInterval(liveTime));
   },[]);
