@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { MdCancelScheduleSend } from "react-icons/md";
@@ -22,6 +22,7 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
 
   const handleCheckboxChange = (data: { [key: string]: string }) => {
     const newTodo: TodoProps = { ...todo, text: data[`edit-${todo.id}`], status: data[`edit-${todo.status}`] };
+    return newTodo;
   };
 
   const onChecked = (e : ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +34,12 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
     setIsEditing(true);
     setValue(`edit-${todo.id}`, todo.text);
   };
+
+  useEffect(()=>{
+    if(isEditing){
+      setValue(`edit-${todo.id}`, todo.text);
+    }
+  },[isEditing, setValue, todo.id, todo.text]);
 
   const handleCancelButtonClick = () => {
     setIsEditing(false);
