@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/antd": "^1.0.0",
+    "antd": "^5.14.2",
     "date-fns": "^3.3.1",
     "next": "14.1.0",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
