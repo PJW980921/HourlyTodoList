@@ -8,6 +8,7 @@ import Vector from '@/../public/images/Vector.svg';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { todayTime } from '../Date';
+import { Providers } from '@/components/common/Main/Proviers';
 const filters = ['All', 'Todo', 'Completed'];
 export default function Home() {
   const [filter, setFilter] = useState(filters[0]);
@@ -20,6 +21,7 @@ export default function Home() {
 return (()=> clearInterval(liveTime));
   },[]);
   return (
+    <Providers>
     <div className='flex justify-center mt-8'>
     <main className={`${PoorStory.className} w-[60rem] flex flex-row justify-around border-solid border-2 border-black-0 rounded-[5rem] h-[35rem] `}>
       <div className='flex flex-col items-center gap-[10rem]'>
@@ -34,6 +36,7 @@ return (()=> clearInterval(liveTime));
       </div>
     </main>
     </div>
+    </Providers>
   );
 }
 
