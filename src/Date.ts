@@ -7,6 +7,6 @@ export const getTodayTime  = () => {
   const dayOfWeek = weekDay[now.getDay()];
   const hours = now.getHours() < 12 ? '오전' : '오후';
   const hoursAmPm = hours + now.getHours() % 12;
-  const minutes = now.getMinutes();
+  const minutes = now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes();
   return todayYear + '/' + todayMonth + '/' + todayDate + dayOfWeek + hoursAmPm + ':' + minutes;
 }
