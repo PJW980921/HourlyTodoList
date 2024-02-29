@@ -63,7 +63,7 @@ export default function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
 		<div className='flex flex-col justify-center gap-[1rem] text-14-400'>
 			{isEditing ? (
 				<form
-					className='mt-2 flex list-none flex-row justify-center gap-2 border-b-2 border-dashed border-black-0'
+					className='mt-2 flex w-full list-none flex-row justify-center gap-2 border-b-2 border-dashed border-black-0'
 					onSubmit={handleSubmit(handleEditFormSubmit)}
 				>
 					<input

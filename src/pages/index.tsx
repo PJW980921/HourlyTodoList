@@ -22,16 +22,16 @@ export default function Home() {
 	}, []);
 	return (
 		<Providers>
-			<div className='mt-8 flex justify-center'>
+			<div className='mt-8 flex items-center justify-center sm:px-[3.2rem]'>
 				<main
-					className={`${PoorStory.className} flex h-[35rem] w-[60rem] flex-row justify-around rounded-[5rem] border-2 border-solid border-black-0 `}
+					className={`${PoorStory.className} flex h-full w-[60rem] flex-row justify-around rounded-[5rem] border-2 border-solid border-black-0  px-[1.5rem] sm:flex-col sm:items-center  sm:justify-center sm:px-[1.2rem]`}
 				>
-					<div className='flex flex-col items-center gap-[10rem]'>
+					<div className='flex flex-col items-center gap-[10rem] sm:gap-[5rem]'>
 						<Header />
 						<Date newTime={newTime} />
 						<Contact />
 					</div>
-					<Image width={1} height={250} src={Vector} className='bg-black-0' alt='중앙 선' />
+					<Image width={1} height={250} src={Vector} className='bg-black-0 sm:rotate-90' alt='중앙 선' />
 					<div className='flex flex-col gap-[1rem]'>
 						<TodoHeader filters={filters} filter={filter} onFilterChange={setFilter} />
 						<TodoMain filter={filter} />

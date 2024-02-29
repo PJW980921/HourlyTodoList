@@ -32,7 +32,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
 	};
 
 	return (
-		<form className='flex flex-row gap-[0.5rem]' onSubmit={handleSubmit(onSubmit)}>
+		<form className='flex flex-row gap-[0.5rem] sm:mb-2 sm:px-[3.2rem]' onSubmit={handleSubmit(onSubmit)}>
 			<input
 				type='text'
 				{...register('todo', {
