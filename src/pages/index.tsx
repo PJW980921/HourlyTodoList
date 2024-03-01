@@ -16,7 +16,7 @@ export default function Home() {
 
 	useEffect(() => {
 		const liveTime = setInterval(() => {
-			setNewTime(getTodayTime().slice(12, 19));
+			setNewTime(getTodayTime().slice(11, 19));
 		}, 1000);
 		return () => clearInterval(liveTime);
 	}, []);
