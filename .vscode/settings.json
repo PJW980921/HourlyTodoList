@@ -8,5 +8,11 @@
 	},
 
 	// 기본 포매팅 실행 방지
-	"editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "cSpell.words": [
+    "antd",
+    "todos",
+    "uuidv",
+    "Velog"
+  ]
 }
