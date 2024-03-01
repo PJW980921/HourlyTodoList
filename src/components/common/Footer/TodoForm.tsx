@@ -26,7 +26,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
 			alert('Todo를 입력해주세요.');
 			return;
 		}
-		const currentTime = getTodayTime().slice(12, 19);
+		const currentTime = getTodayTime().slice(11, 21);
 		onAdd({ id: uuidv4(), text: data.todo, status: 'Todo', time: currentTime });
 		reset();
 	};
