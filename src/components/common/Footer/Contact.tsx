@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Contact() {
 	return (
 		<footer>
-			<ul className='felx-row flex gap-[1rem]'>
+			<ul className='flex flex-row gap-[1rem]'>
 				<Link href='https://github.com/PJW980921'>
 					<li>
 						<FaGithub />
