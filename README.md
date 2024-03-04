@@ -52,7 +52,7 @@ frameworks
 ![다크모드](https://github.com/PJW980921/HourlyTodoList/assets/124119421/68ecbee8-6946-4644-b00b-5089a19946cf)
 
 
-## 드롭 앤 드롭
+## 드래그 앤 드롭
 - 기본으로 최신순으로 정렬 되지만, 드래그 기능을 사용하여 할일 목록 순서를 변경할 수 있습니다.
 - 
 ![드래그 앤 드랍](https://github.com/PJW980921/HourlyTodoList/assets/124119421/8ba957f7-a669-44c9-a4a2-734d6ca483e4)
