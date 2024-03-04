@@ -54,10 +54,13 @@ frameworks
 
 ## 드롭 앤 드롭
 - 기본으로 최신순으로 정렬 되지만, 드래그 기능을 사용하여 할일 목록 순서를 변경할 수 있습니다.
+- 
 ![드래그 앤 드랍](https://github.com/PJW980921/HourlyTodoList/assets/124119421/8ba957f7-a669-44c9-a4a2-734d6ca483e4)
 
 # contact Me.. 
 피드백/건의사항은 댓글 또는 이메일로 남겨주시면 감사하겠습니다.
-[Velog](https://velog.io/@jackgg12322/posts)
-[Gmail](jackgg12322@gmail.com)
+    <div align= "center"> 
+    <a href=https://velog.io/@jackgg12322/posts><img src="https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=Velog&logoColor=white&link=https://velog.io/@jackgg12322/posts"></a>
+<a href=mailto:jackgg12322@gmail.com>
+<img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:jackgg12322@gmail.com"></a></div> 
 
