@@ -22,7 +22,7 @@ frameworks
 <img src="https://img.shields.io/badge/react--beautiful--dnd-61DAFB?style=for-the-badge&logo=next&logoColor=white">
 <img src="https://img.shields.io/badge/next--themes-000000?style=for-the-badge&logo=next&logoColor=white">
 
-<p>tools</p>
+<p>Lints</p>
 <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white">
 <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white">
 </div>
